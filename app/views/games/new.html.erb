@@ -1,0 +1,4 @@
+<%= simple_form_for [current_user, @game] do |f| %>
+  <%= f.input :numberRound %>
+  <%= f.submit "Create Game", class: "btn btn-primary" %>
+<% end %>
