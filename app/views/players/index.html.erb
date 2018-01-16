@@ -1,0 +1,16 @@
+<% @game = Game.find(params[:game_id]) %>
+<% @players = @game.players %>
+<% @bettors = @game.bettors %>
+
+<h3>Players</h3>
+<% @players.each do |player| %>
+  <p><%= player.name %></p>
+<% end %>
+
+<h3>Bettors</h3>
+<% @bettors.each do |bettor| %>
+  <p><%= bettor.name %></p>
+<% end %>
+
+<%= link_to "create a new player", new_user_game_player_path(current_user, params[:game_id]) %>
+<%= link_to "create a new bettor", new_user_game_bettor_path(current_user, params[:game_id]) %>

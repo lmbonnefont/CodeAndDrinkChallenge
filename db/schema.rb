@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180116163004) do
+ActiveRecord::Schema.define(version: 20180116164402) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bettors", force: :cascade do |t|
+    t.string "name"
+    t.string "surname"
+    t.bigint "game_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_bettors_on_game_id"
+  end
 
   create_table "games", force: :cascade do |t|
     t.integer "round", default: 0
@@ -22,6 +31,15 @@ ActiveRecord::Schema.define(version: 20180116163004) do
     t.datetime "updated_at", null: false
     t.integer "numberRound"
     t.index ["user_id"], name: "index_games_on_user_id"
+  end
+
+  create_table "players", force: :cascade do |t|
+    t.string "name"
+    t.string "surname"
+    t.bigint "game_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_players_on_game_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -41,4 +59,6 @@ ActiveRecord::Schema.define(version: 20180116163004) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bettors", "games"
+  add_foreign_key "players", "games"
 end
