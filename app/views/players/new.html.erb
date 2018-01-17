@@ -1,0 +1,7 @@
+<% @player = Player.new %>
+<% @game = params[:game_id] %>
+<%= simple_form_for [@game, @player], url: user_game_players_path(current_user, @game), method: :post do |f| %>
+  <%= f.input :name %>
+  <%= f.input :surname %>
+  <%= f.submit "Create player", class: "btn btn-primary" %>
+<% end %>
