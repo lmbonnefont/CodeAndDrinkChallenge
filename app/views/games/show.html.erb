@@ -1,0 +1,28 @@
+<% @game = Game.find(params[:id]) %>
+<% @players = @game.players %>
+<% @bettors = @game.bettors %>
+<% @bets = @game.bets %>
+
+<h3>Players</h3>
+<% @players.each do |player| %>
+  <p><%= player.surname %> <%= player.name %></p>
+<% end %>
+
+<%= link_to "Create a new player", new_user_game_player_path(current_user, params[:id]) %>
+
+
+<h3>Bettors</h3>
+<% @bettors.each do |bettor| %>
+  <p><%= bettor.surname %> <%= bettor.name %></p>
+<% end %>
+
+<%= link_to "Create a new bettor", new_user_game_bettor_path(current_user, params[:id]) %>
+
+<h3>Bet for round <%= @game.round + 1%></h3>
+<% @bets.each do |bet| %>
+  <p><%= bet.bettor.surname %> parie <%= bet.shot %> shots que <%= bet.player.surname %> passe au prochain tour</p>
+<% end %>
+
+<%= link_to "Create a bet", new_user_game_bet_path(current_user, params[:id]) %>
+<%= link_to "Next round", user_game_survivorselection_path(current_user, params[:id]) %>
+

@@ -8,7 +8,7 @@ class PlayersController < ApplicationController
     @game = Game.find(params[:game_id])
     @player.game = @game
     @player.save!
-    redirect_to user_game_players_path(current_user, @game)
+    redirect_to user_game_path(current_user, @game)
   end
 
   def index
@@ -18,7 +18,7 @@ class PlayersController < ApplicationController
   private
 
   def player_params
-    params.require(:bettor).permit(:name, :surname)
+    params.require(:player).permit(:name, :surname)
   end
 
 end

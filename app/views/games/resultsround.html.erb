@@ -1,0 +1,18 @@
+<% @game.bets.each do |bet| %>
+  <% if @death_id.include?(bet.player.id.to_s) %>
+    <p><%= bet.bettor.name %> looses! He drinks <%= bet.shot %> shots!</p>
+  <% else %>
+    <p><%= bet.bettor.name %> wins! He can deal <%= bet.shot %> shots to anyone!</p>
+  <% end %>
+<% end %>
+
+<% @game.bets.each do |bet| %>
+  <% bet.destroy %>
+<% end %>
+<% @death_id.each do |id| %>
+  <% player = Player.find(id) %>
+  <% player.destroy %>
+<% end %>
+
+
+<%= link_to "Next Round!", user_game_path(current_user, @game) %>

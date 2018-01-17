@@ -3,5 +3,5 @@
 <%= simple_form_for [@game, @player], url: user_game_players_path(current_user, @game), method: :post do |f| %>
   <%= f.input :name %>
   <%= f.input :surname %>
-  <%= f.submit "Create Game", class: "btn btn-primary" %>
+  <%= f.submit "Create player", class: "btn btn-primary" %>
 <% end %>

@@ -9,7 +9,7 @@ class BettorsController < ApplicationController
     @game = Game.find(params[:game_id])
     @bettor.game = @game
     @bettor.save!
-    redirect_to user_game_players_path(current_user, @game)
+    redirect_to user_game_path(current_user, @game)
   end
 
   private
