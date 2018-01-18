@@ -1,4 +1,9 @@
-<%= simple_form_for [current_user, @game] do |f| %>
-  <%= f.input :numberRound %>
-  <%= f.submit "Create Game", class: "btn btn-primary" %>
-<% end %>
+<div class="fiche">
+  <div class="wrapper">
+    <%= simple_form_for [current_user, @game] do |f| %>
+      <%= f.input :title, label: "What's the name of the competition ?" %>
+      <%= f.input :numberRound, label: "How many rounds ?" %>
+      <%= f.submit "Create Game", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

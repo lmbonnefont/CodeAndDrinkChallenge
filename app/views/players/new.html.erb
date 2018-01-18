@@ -1,7 +1,19 @@
 <% @player = Player.new %>
 <% @game = params[:game_id] %>
-<%= simple_form_for [@game, @player], url: user_game_players_path(current_user, @game), method: :post do |f| %>
-  <%= f.input :name %>
-  <%= f.input :surname %>
-  <%= f.submit "Create player", class: "btn btn-primary" %>
-<% end %>
+
+<div class="fiche">
+  <% if Game.find(@game).players == [] %>
+    <p class="text-center title">Create your first player</p>
+  <% else %>
+  <p class="text-center title">Add a new player</p>
+  <% end %>
+
+  <div class="wrapper">
+
+    <%= simple_form_for [@game, @player], url: user_game_players_path(current_user, @game), method: :post do |f| %>
+      <%= f.input :name %>
+      <%= f.input :surname %>
+      <%= f.submit "Create player", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

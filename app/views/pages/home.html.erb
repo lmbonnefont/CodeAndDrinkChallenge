@@ -1,5 +1,11 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('http://adelius.fr/wp-content/uploads/recrutement_header03.jpg');">
+  <div class="banner-content">
+    <h1>Code&Drink Challenge</h1>
+    <p>Who will be the hero of the day ?</p>
+    <%= link_to "New Game", new_user_game_path(current_user), class: "btn btn-primary btn-lg"%>
+  </div>
+</div>
+
 <% if current_user != nil %>
-  <%= link_to "New Game", new_user_game_path(current_user) %>
+
 <% end %>

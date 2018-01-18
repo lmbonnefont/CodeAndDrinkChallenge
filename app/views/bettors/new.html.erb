@@ -1,7 +1,18 @@
-<h2>Bettor</h2>
 <% @game = params[:game_id] %>
-<%= simple_form_for [@game, @bettor], url: user_game_bettors_path(current_user, @game), method: :post do |f| %>
-  <%= f.input :name %>
-  <%= f.input :surname %>
-  <%= f.submit "Create bettor", class: "btn btn-primary" %>
-<% end %>
+
+<div class="fiche">
+  <% if Game.find(@game).bettors == [] %>
+    <p class="text-center title">Create your first bettor</p>
+  <% else %>
+  <p class="text-center title">Add a new bettor</p>
+  <% end %>
+
+  <div class="wrapper">
+    <%= simple_form_for [@game, @bettor], url: user_game_bettors_path(current_user, @game), method: :post do |f| %>
+      <%= f.input :name %>
+      <%= f.input :surname %>
+      <%= f.submit "Create bettor", class: "btn btn-primary" %>
+    <% end %>
+
+  </div>
+</div>

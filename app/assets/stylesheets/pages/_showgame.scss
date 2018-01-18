@@ -1,0 +1,26 @@
+.protagonists {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.bloc {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 35px;
+  padding-bottom: 15px;
+  box-shadow: 2px 2px #DEDEDE;
+}
+
+.people {
+  width: 30%;
+  padding-left: 40px;
+}
+
+
+.bet {
+  margin-top: 20px;
+  width: 80%;
+}

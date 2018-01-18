@@ -1,0 +1,47 @@
+.medium {
+  background-color: #DEDEDE;
+  border-radius: 20px;
+  margin: 0 auto;
+  color: black;
+  font-weight: lighter;
+  opacity: 1;
+  height: 35px;
+  width: 120px;
+  padding-top: 4px;
+  transition: background 0.3s ease;
+}
+
+.medium:hover {
+  opacity: 0.8;
+  text-decoration: none;
+  font-weight: normal;
+  color: black;
+}
+
+.petit {
+  margin-left: 86px;
+}
+
+.grand {
+  margin-left: 450px;
+}
+
+.nextround {
+  color: white;
+  padding: 10px 15px;
+  border-radius: 4px;
+  font-weight: bold;
+  background: #6AD58B;
+  transition: background 0.3s ease;
+  margin: 0 auto;
+}
+.nextround:hover {
+  opacity: 1;
+  background: #3ac162;
+  text-decoration: none;
+  color: white;
+}
+
+.contenant {
+  margin-top: 45px;
+}

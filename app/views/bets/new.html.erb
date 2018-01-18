@@ -1,6 +1,17 @@
-<%= simple_form_for [@game, @bet], url: user_game_bets_path(current_user, @game), method: :post do |f| %>
-  <%= f.input :shot %>
-  <%= f.input :player, collection: @game.players %>
-  <%= f.input :bettor, collection: @game.bettors %>
-  <%= f.submit "Good luck Sir!", class: "btn btn-primary" %>
-<% end %>
+<div class="text-center fiche">
+  <% if @game.bets == [] %>
+    <p class="title">Create your first bet</p>
+  <% else %>
+  <p class="title">Create a new bet</p>
+  <% end %>
+
+  <div class="wrapper">
+    <%= simple_form_for [@game, @bet], url: user_game_bets_path(current_user, @game), method: :post do |f| %>
+      <%= f.input :shot %>
+      <%= f.input :bettor, collection: @game.bettors %>
+      <%= f.input :player, collection: @game.players %>
+      <%= f.submit "Good luck Sir!", class: "btn btn-primary" %>
+    <% end %>
+
+  </div>
+</div>
