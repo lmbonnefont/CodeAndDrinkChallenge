@@ -2,10 +2,8 @@
   <div class="banner-content">
     <h1>Code&Drink Challenge</h1>
     <p>Who will be the hero of the day ?</p>
-    <%= link_to "New Game", new_user_game_path(current_user), class: "btn btn-primary btn-lg"%>
+    <% if current_user != nil %>
+      <%= link_to "New Game", new_user_game_path(current_user), class: "btn btn-primary btn-lg"%>
+    <% end %>
   </div>
 </div>
-
-<% if current_user != nil %>
-
-<% end %>
