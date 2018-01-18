@@ -1,5 +1,9 @@
-<% @player = @game.players.first %>
-<%= simple_form_for @player, url: user_game_resultsround_path(current_user, @game), method: :post do |f| %>
-  <%= f.input :dies, as: :check_boxes, collection: @game.players %>
-  <%= f.button :submit, label: "See the results"%>
-<% end %>
+<div class="fiche">
+  <div class="wrapper">
+  <% @player = @game.players.first %>
+  <%= simple_form_for @player, url: user_game_resultsround_path(current_user, @game), method: :post do |f| %>
+    <%= f.input :dies, as: :check_boxes, collection: @game.players, label: "Tick the DEAD players" %>
+    <%= f.button :submit, "See the results"%>
+  <% end %>
+  </div>
+</div>

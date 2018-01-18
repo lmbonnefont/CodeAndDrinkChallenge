@@ -1,3 +1,6 @@
+<div class="fiche">
+  <div class="wrapper">
+
 <% @game.bets.each do |bet| %>
   <% if @death_id.include?(bet.player.id.to_s) %>
     <p><%= bet.bettor.name %> looses! He drinks <%= bet.shot %> shots!</p>
@@ -13,6 +16,9 @@
   <% player = Player.find(id) %>
   <% player.destroy %>
 <% end %>
+
+  </div>
+</div>
 
 
 <%= link_to "Next Round!", user_game_path(current_user, @game) %>
