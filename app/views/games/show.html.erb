@@ -8,8 +8,12 @@
 <div class="protagonists">
   <div class="bloc people">
     <h3>Players</h3>
-    <% @players.each do |player| %>
-      <p><%= player.surname %> <%= player.name %></p>
+    <% if @players == [] %>
+      <p class = "info">There is no player yet ... Create one by clicking "New Player"</p>
+    <% else %>
+      <% @players.each do |player| %>
+        <p><%= player.surname %> <%= player.name %></p>
+      <% end %>
     <% end %>
 
     <%= link_to "New player", new_user_game_player_path(current_user, params[:id]), class: "medium petit text-center" %>
