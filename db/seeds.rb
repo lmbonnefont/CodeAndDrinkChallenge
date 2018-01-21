@@ -10,6 +10,7 @@ Player.destroy_all
 Bettor.destroy_all
 Game.destroy_all
 User.destroy_all
+Winner.destroy_all
 
 
 winner = Winner.new

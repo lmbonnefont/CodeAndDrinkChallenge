@@ -9,13 +9,17 @@
 </div>
 
 <h3 class="text-center">Hall of fame</h3>
-<div class="hall_of_fame">
-  <% Winner.all.each do |winner| %>
-    <div class="winner">
-      <%= cl_image_tag winner.photo, width: 200, height: 200, crop: :fill, gravity: :face, class: "avatar" %>
-      <p></p>
-      <p class="text-center"><%= winner.surname %> <%= winner.name %></p>
-      <p class="text-center"><%= winner.date %></p>
-    </div>
-  <% end %>
+<div class="container">
+  <div class="row">
+    <% Winner.all.each do |winner| %>
+      <div class="col-xs-3">
+        <div class="winner">
+          <%= cl_image_tag winner.photo, width: 200, height: 200, crop: :fill, gravity: :face, class: "avatar" %>
+          <p></p>
+          <p class="text-center winner_desc"><%= winner.surname %> <%= winner.name %></p>
+          <p class="text-center winner_desc"><%= winner.date %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
