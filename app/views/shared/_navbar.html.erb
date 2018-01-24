@@ -9,26 +9,15 @@
 
     <% if user_signed_in? %>
 
-      <!-- Links when logged in -->
-      <%= link_to "Host", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Trips", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <% citation = ["Sebastien Saunier doesn't use GUI, he prefers COMMAND line.", "Sebastien Saunier crossed the road. No one has ever dared question his motives.", "There is no Esc key on Sebastien Saunier' keyboard, because no one escapes Sebastien Saunier.", "Sebastien Saunier smells what the Rock is cooking... because the Rock is Sebastien Saunier' personal chef.", "Sebastien Saunier invented the internet? just so he had a place to store his porn.", "Code runs faster when Sebastien Saunier watches it.", "When Sebastien Saunier falls in water, Sebastien Saunier doesn't get wet. Water gets Sebastien Saunier.", "Sebastien Saunier doesn't say 'who's your daddy', because he knows the answer.", "Sebastien Saunier can make fire using two ice cubes.", "When Sebastien Saunier break the build, you can't fix it, because there is not a single line of code left.", "Sebastien Saunier killed two stones with one bird.", "Sebastien Saunier can access private methods.", "The truth will set you free. Unless Sebastien Saunier has you, in which case, forget it buddy!", "Sebastien Saunier can speak Braille.", "No one has ever pair-programmed with Sebastien Saunier and lived to tell about it.", "If Sebastien Saunier writes code with bugs, the bugs fix themselves.", "Sebastien Saunier never has to build his program to machine code. Machines have learnt to interpret Sebastien Saunier code.", "July 4th is Independence day. And the day Sebastien Saunier was born. Coincidence? I think not."] %>
+
+      <div class="citation"> <%= citation.sample %></div>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
           <%= image_tag "http://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-            <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-cog"></i>  <%= t(".settings", default: "Settings") %>
-              <% end %>
-            </li>
             <li>
               <%= link_to destroy_user_session_path, method: :delete do %>
                 <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
@@ -39,7 +28,7 @@
       </div>
     <% else %>
       <!-- Login link (when logged out) -->
-      <%= link_to "sign_in", new_user_session_path %>
+      <%= link_to "Sign in", new_user_session_path, class: "nextround" %>
     <% end %>
   </div>
 
