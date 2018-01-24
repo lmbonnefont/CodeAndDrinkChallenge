@@ -7,3 +7,21 @@
     <% end %>
   </div>
 </div>
+
+<h3 class="text-center">Hall of fame</h3>
+<div class="container">
+  <div class="row">
+    <% Winner.all.each do |winner| %>
+      <% if winner.photo != nil %>
+        <div class="col-xs-3">
+          <div class="winner">
+            <%= cl_image_tag winner.photo, width: 200, height: 200, crop: :fill, gravity: :face, class: "avatar" %>
+            <p></p>
+            <p class="text-center winner_desc"><%= winner.surname %> <%= winner.name %></p>
+            <p class="text-center winner_desc"><%= winner.date %></p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
