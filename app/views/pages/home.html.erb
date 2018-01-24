@@ -12,14 +12,16 @@
 <div class="container">
   <div class="row">
     <% Winner.all.each do |winner| %>
-      <div class="col-xs-3">
-        <div class="winner">
-          <%= cl_image_tag winner.photo, width: 200, height: 200, crop: :fill, gravity: :face, class: "avatar" %>
-          <p></p>
-          <p class="text-center winner_desc"><%= winner.surname %> <%= winner.name %></p>
-          <p class="text-center winner_desc"><%= winner.date %></p>
+      <% if winner.photo != nil %>
+        <div class="col-xs-3">
+          <div class="winner">
+            <%= cl_image_tag winner.photo, width: 200, height: 200, crop: :fill, gravity: :face, class: "avatar" %>
+            <p></p>
+            <p class="text-center winner_desc"><%= winner.surname %> <%= winner.name %></p>
+            <p class="text-center winner_desc"><%= winner.date %></p>
+          </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
   </div>
 </div>
