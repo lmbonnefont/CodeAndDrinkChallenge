@@ -53,10 +53,7 @@ class GamesController < ApplicationController
 
     @game.round += 1
     @game.save!
-
-    if @game.round == @game.numberRound
-      redirect_to user_game_uploadphotowinner_path(current_user, @game)
-    end
+  end
 
     def uploadphotowinner
       @game = Game.find(params[:game_id])
@@ -66,10 +63,6 @@ class GamesController < ApplicationController
       @winner.date = Date.today
       @winner.save!
     end
-
-
-
-  end
 
   private
 

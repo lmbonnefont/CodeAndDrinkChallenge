@@ -1,0 +1,24 @@
+.fichewinner {
+  width: 447px;
+  margin: 0 auto;
+  background-color: white;
+  height: 512px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  justify-content: space-around;
+  border-radius: 5px;
+  box-shadow: 2px 2px #DEDEDE;
+}
+
+.wrapperwinner {
+  width: 304px;
+  margin: 0 auto;
+}
+
+.congratulations {
+  margin-top: 55px;
+  font-size: 18px;
+  font-weight: lighter;
+  font-style: italic;
+}
