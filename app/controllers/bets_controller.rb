@@ -18,6 +18,7 @@ class BetsController < ApplicationController
     bet.game_id = @game.id
     bet.save!
 
+
     redirect_to user_game_path(current_user, @game)
 
   end

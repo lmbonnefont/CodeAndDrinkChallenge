@@ -1,7 +1,7 @@
 <div class="fiche">
   <div class="wrapper-special">
-    <% if @game.bets = [] %>
-      <p>There was no bet for this round ...</p>
+    <% if @game.bets == []  %>
+      <p>There was no bets for this round</p>
     <% else %>
       <% @game.bets.each do |bet| %>
         <% if @death_id.include?(bet.player.id.to_s) %>
@@ -16,6 +16,7 @@
         <% bet.destroy %>
       <% end %>
 
+
       <% @death_id.each do |id| %>
         <% player = Player.find(id) %>
         <% player.destroy %>
@@ -25,5 +26,9 @@
 </div>
 
 <div class="contenant text-center">
-  <%= link_to "Next Round!", user_game_path(current_user, @game), class: "nextround" %>
+      <% if @game.round == @game.numberRound %>
+        <%= link_to "You win!", user_game_uploadphotowinner_path(current_user, @game), class: "nextround"%>
+      <% else %>
+        <%= link_to "Next Round!", user_game_path(current_user, @game), class: "nextround" %>
+      <% end %>
 </div>
