@@ -18,6 +18,7 @@
             <%= cl_image_tag winner.photo, width: 200, height: 200, crop: :fill, gravity: :face, class: "avatar" %>
             <p></p>
             <p class="text-center winner_desc"><%= winner.surname %> <%= winner.name %></p>
+            <p class="text-center winner_desc"> Batch <%= winner.batch %> - <%= winner.city %></p>
             <p class="text-center winner_desc"><%= winner.date %></p>
           </div>
         </div>
