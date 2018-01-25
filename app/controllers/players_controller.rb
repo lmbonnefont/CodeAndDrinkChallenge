@@ -7,8 +7,11 @@ class PlayersController < ApplicationController
     @player = Player.new(player_params)
     @game = Game.find(params[:game_id])
     @player.game = @game
-    @player.save!
-    redirect_to user_game_path(current_user, @game)
+    if @player.save
+      redirect_to user_game_path(current_user, @game)
+    else
+      render :new
+    end
   end
 
   def index

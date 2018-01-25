@@ -5,9 +5,9 @@
     <% else %>
       <% @game.bets.each do |bet| %>
         <% if @death_id.include?(bet.player.id.to_s) %>
-          <p><%= bet.bettor.name %> looses! He drinks <%= bet.shot %> shots!</p>
+          <p><%= bet.bettor.name %> looses! He/ She drinks <%= bet.shot %> shots!</p>
         <% else %>
-          <p><%= bet.bettor.name %> wins! He can deal <%= bet.shot %> shots to anyone!</p>
+          <p><%= bet.bettor.name %> wins! He/ She can deal <%= bet.shot %> shots to anyone!</p>
         <% end %>
       <% end %>
     <% end %>
@@ -27,7 +27,7 @@
 
 <div class="contenant text-center">
       <% if @game.round == @game.numberRound %>
-        <%= link_to "You win!", user_game_uploadphotowinner_path(current_user, @game), class: "nextround"%>
+        <%= link_to "Hall of fame", user_game_uploadphotowinner_path(current_user, @game), class: "nextround"%>
       <% else %>
         <%= link_to "Next Round!", user_game_path(current_user, @game), class: "nextround" %>
       <% end %>

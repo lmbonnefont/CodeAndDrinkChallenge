@@ -1,16 +1,17 @@
 
 <% @game = Game.find(params[:game_id]) %>
-<% @winner = Winner.last %>
 
-<p class="congratulations text-center">Congratulations <%= @winner.surname %> <%= @winner.name %> today, you become part of the legend ! Let's upload a photo for the hall of fame ;)<p>
+<p class="congratulations text-center">Congratulations! Today, you become part of the legend ! Let's upload your profile for the hall of fame ;)<p>
 
 <div class="fichewinner">
   <div class="wrapperwinner">
     <%= simple_form_for @winner, url: user_game_fame_path(current_user, @game), method: :post do |f| %>
-      <%= f.input :name %>
-      <%= f.input :surname %>
-      <%= f.input :date %>
-      <%= f.input :photo %>
+      <%= f.input :name, required: true %>
+      <%= f.input :surname, required: true %>
+      <%= f.input :date, required:true %>
+      <%= f.input :city, required:true %>
+      <%= f.input :batch, required:true %>
+      <%= f.input :photo, required:true %>
       <%= f.input :photo_cache, as: :hidden %>
       <%= f.submit "Hall of fame", class: "btn btn-primary" %>
     <% end %>
