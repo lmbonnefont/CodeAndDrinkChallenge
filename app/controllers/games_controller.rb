@@ -3,8 +3,11 @@ class GamesController < ApplicationController
 
   def fame
     winner = Winner.last
-    winner.update!(hall_of_fame_params)
-    redirect_to root_path
+    if winner.update(hall_of_fame_params)
+      redirect_to root_path
+    else
+      render :uploadphotowinner
+    end
   end
 
 
@@ -58,10 +61,6 @@ class GamesController < ApplicationController
     def uploadphotowinner
       @game = Game.find(params[:game_id])
       @winner = Winner.new
-      @winner.name = @game.players[0].name
-      @winner.surname = @game.players[0].surname
-      @winner.date = Date.today
-      @winner.save!
     end
 
   private
@@ -71,6 +70,6 @@ class GamesController < ApplicationController
   end
 
   def hall_of_fame_params
-    params.require(:winner).permit(:name, :surname, :date, :photo)
+    params.require(:winner).permit(:name, :surname, :date, :photo, :city, :batch)
   end
 end
