@@ -93,6 +93,10 @@
 .content-players {
   height: 250px;
   overflow: scroll;
+  @media (max-width: 500px) {
+    width: 200px;
+    text-align: center;
+  }
   p {
     margin-bottom: 9px;
   }
