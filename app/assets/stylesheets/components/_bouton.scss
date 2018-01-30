@@ -1,15 +1,4 @@
-.medium {
-  background-color: #DEDEDE;
-  border-radius: 20px;
-  margin: 0 auto;
-  color: black;
-  font-weight: lighter;
-  opacity: 1;
-  height: 35px;
-  width: 120px;
-  padding-top: 4px;
-  transition: background 0.3s ease;
-}
+
 
 .medium:hover {
   opacity: 0.8;
@@ -20,6 +9,9 @@
 
 .petit {
   margin-left: 86px;
+  @media (max-width: 500px) {
+    margin-left: 0px;
+  }
 }
 
 .grand {
@@ -45,6 +37,7 @@
 
 .contenant {
   margin-top: 45px;
+  margin-bottom: 50px;
 }
 
 .signin {

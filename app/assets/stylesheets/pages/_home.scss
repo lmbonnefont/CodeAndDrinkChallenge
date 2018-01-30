@@ -7,8 +7,67 @@
 .winner {
   width: 75%;
   margin: 20px;
+
+  p:first-child {
+    margin-top: 12.5px;
+    font-size: 22px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: indianred;
+    font-weight: bolder;
+  }
 }
 
-.winner_desc {
-  font-style: italic;
+h3 {
+  font-size: 36px;
+  font-weight: bold;
 }
+
+.btn-lg, .btn-group-lg>.btn {
+  padding: 10px 16px;
+  font-size: 23px;
+  line-height: 1.3333333;
+  border-radius: 7px;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: indianred;
+  border-color: indianred;
+  border-radius: 8px;
+  &:focus {
+    outline: none;
+    color: #fff;
+    background-color: indianred;
+    border-color: indianred;
+  }
+
+  &:active:focus {
+    color: #fff;
+    background-color: indianred;
+    border-color: indianred;
+  }
+}
+
+.btn:active:focus {
+  outline: none;
+}
+
+.btn-primary:hover {
+  color: indianred;
+  background-color: white;
+  border-color: indianred;
+}
+
+.btn-primary:active:hover {
+  color: indianred;
+  background-color: white;
+  border-color: indianred;
+}
+
+.btn-primary:active {
+  color: indianred;
+  background-color: white;
+  border-color: indianred;
+}
+

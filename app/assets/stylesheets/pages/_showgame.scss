@@ -1,8 +1,35 @@
-.protagonists {
+.wrap-protagonists {
+  background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('http://adelius.fr/wp-content/uploads/recrutement_header03.jpg');
+  background-size: cover;
+  background-position: center;
   display: flex;
-  justify-content: space-around;
-  width: 100%;
-  margin: 0 auto;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  h2 {
+    color: white;
+    font-weight: bolder;
+    @media (max-width: 500px) {
+      font-size: 32px;
+    }
+  }
+}
+
+.protagonists {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+  justify-content: space-between;
+  width: 800px;
+  /* padding: 10px 215px; */
+  /* margin: 0 auto; */
+  margin-top: 20px;
+  @media (max-width: 500px) {
+    flex-direction: column;
+    width: 300px;
+    margin-top: 0px;
+  }
 }
 
 .bloc {
@@ -15,14 +42,36 @@
 }
 
 .people {
-  width: 30%;
-  padding-left: 40px;
+  padding-left: 30px;
+  padding-right: 30px;
+  /* padding-right: 40px; */
+  height: 300px;
+  @media (max-width: 500px) {
+    margin-bottom: 20px;
+    align-items: center;
+  }
 }
 
 
 .bet {
   margin-top: 20px;
-  width: 80%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  @media (max-width: 500px) {
+    margin-top: 0px;
+  }
+  .medium {
+    margin: 0px;
+  }
 }
 
 .info {
@@ -30,3 +79,56 @@
   font-size: 16px;
   font-style: italic;
 }
+
+
+.wrapper-special {
+  width: 400px;
+  margin: 0 auto;
+  margin-bottom: 45px;
+  font-size: 25px;
+  font-weight: lighter;
+  text-align: center;
+}
+
+.content-players {
+  height: 250px;
+  overflow: scroll;
+  p {
+    margin-bottom: 9px;
+  }
+}
+
+
+.medium {
+  background-color: indianred;
+  border-radius: 8px;
+  margin: 0 100px;
+  color: white;
+  font-weight: lighter;
+  opacity: 1;
+  position: relative;
+  height: 35px;
+  top: 2px;
+  width: 120px;
+  margin-top: 10px;
+  padding: 5px 6px 6px 6px;
+  -webkit-transition: background 0.3s ease;
+  transition: background 0.3s ease;
+  @media (max-width: 500px) {
+    margin: 0px;
+  }
+  a {
+    text-decoration: none;
+  }
+}
+
+.medium:hover {
+  text-decoration: none;
+  font-weight: normal;
+  color: indianred;
+  background-color: white;
+  border: 1px solid indianred;
+}
+
+
+

@@ -23,4 +23,7 @@
   justify-content: space-around;
   border-radius: 5px;
   box-shadow: 2px 2px #DEDEDE;
+  @media (max-width: 500px) {
+    width: 300px;
+  }
 }

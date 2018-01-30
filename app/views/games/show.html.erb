@@ -3,47 +3,52 @@
 <% @bettors = @game.bettors %>
 <% @bets = @game.bets %>
 
+<div class="wrap-protagonists">
 <h2 class="text-center"><%= @game.title %></h2>
-
-<div class="protagonists">
-  <div class="bloc people">
-    <h3>Players</h3>
-    <% if @players == [] %>
-      <p class = "info">There is no player yet ... Create one by clicking "New Player"</p>
-    <% else %>
-      <% @players.each do |player| %>
-        <p><%= player.surname %> <%= player.name %></p>
+  <div class="protagonists">
+    <div class="bloc people">
+      <h3>Players</h3>
+      <% if @players == [] %>
+        <p class = "info">There is no player yet ... Create one by clicking "New Player"</p>
+      <% else %>
+      <div class="content-players">
+        <% @players.each do |player| %>
+          <p><%= player.surname %> <%= player.name %></p>
+        <% end %>
+      </div>
       <% end %>
+
+      <%= link_to "New player", new_user_game_player_path(current_user, params[:id]), class: "medium petit text-center" %>
+    </div>
+
+    <div class="bloc people">
+      <h3>Bettors</h3>
+      <div class="content-players">
+        <% @bettors.each do |bettor| %>
+          <p><%= bettor.surname %> <%= bettor.name %></p>
+        <% end %>
+      </div>
+
+      <%= link_to "New bettor", new_user_game_bettor_path(current_user, params[:id]), class: "medium petit text-center" %>
+    </div>
+
+  </div>
+
+
+
+  <div class="protagonists">
+      <div class="bloc bet text-center">
+    <h3>Bet for round <%= @game.round + 1%></h3>
+    <% @bets.each do |bet| %>
+      <p><%= bet.bettor.surname %> parie <%= bet.shot %> shots que <%= bet.player.surname %> passe au prochain tour</p>
     <% end %>
 
-    <%= link_to "New player", new_user_game_player_path(current_user, params[:id]), class: "medium petit text-center" %>
+    <%= link_to "New bet", new_user_game_bet_path(current_user, params[:id]), class: "medium grand text-center" %>
+    </div>
   </div>
-
-  <div class="bloc people">
-    <h3>Bettors</h3>
-    <% @bettors.each do |bettor| %>
-      <p><%= bettor.surname %> <%= bettor.name %></p>
-    <% end %>
-
-    <%= link_to "New bettor", new_user_game_bettor_path(current_user, params[:id]), class: "medium petit text-center" %>
+  <div class="contenant text-center">
+    <%= link_to "Next round", user_game_survivorselection_path(current_user, params[:id]), class: "nextround" %>
   </div>
-
-</div>
-
-
-
-<div class="protagonists">
-    <div class="bloc bet text-center">
-  <h3>Bet for round <%= @game.round + 1%></h3>
-  <% @bets.each do |bet| %>
-    <p><%= bet.bettor.surname %> parie <%= bet.shot %> shots que <%= bet.player.surname %> passe au prochain tour</p>
-  <% end %>
-
-  <%= link_to "New bet", new_user_game_bet_path(current_user, params[:id]), class: "medium grand text-center" %>
-  </div>
-</div>
-<div class="contenant text-center">
-  <%= link_to "Next round", user_game_survivorselection_path(current_user, params[:id]), class: "nextround" %>
 </div>
 
 
