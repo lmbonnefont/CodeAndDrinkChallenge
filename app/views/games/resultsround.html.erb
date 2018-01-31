@@ -1,28 +1,26 @@
-<div class="fiche">
-  <div class="wrapper-special">
-    <% if @game.bets == []  %>
-      <p>There was no bets for this round</p>
-    <% else %>
-      <% @game.bets.each do |bet| %>
-        <% if @death_id.include?(bet.player.id.to_s) %>
-          <p><%= bet.bettor.name %> looses! He/ She drinks <%= bet.shot %> shots!</p>
-        <% else %>
-          <p><%= bet.bettor.name %> wins! He/ She can deal <%= bet.shot %> shots to anyone!</p>
-        <% end %>
+<div class="ficheresults">
+  <% if @game.bets == []  %>
+    <p>There was no bets for this round</p>
+  <% else %>
+    <% @game.bets.each do |bet| %>
+      <% if @death_id.include?(bet.player.id.to_s) %>
+        <p><%= bet.bettor.name %> looses! He/ She drinks <%= bet.shot %> shots!</p>
+      <% else %>
+        <p><%= bet.bettor.name %> wins! He/ She can deal <%= bet.shot %> shots to anyone!</p>
       <% end %>
     <% end %>
+  <% end %>
 
-      <% @game.bets.each do |bet| %>
-        <% bet.destroy %>
-      <% end %>
+    <% @game.bets.each do |bet| %>
+      <% bet.destroy %>
+    <% end %>
 
 
-      <% @death_id.each do |id| %>
-        <% player = Player.find(id) %>
-        <% player.destroy %>
-      <% end %>
+    <% @death_id.each do |id| %>
+      <% player = Player.find(id) %>
+      <% player.destroy %>
+    <% end %>
 
-  </div>
 </div>
 
 <div class="contenant text-center">
