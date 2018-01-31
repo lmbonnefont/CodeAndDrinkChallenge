@@ -1,3 +1,5 @@
+<% @bet = Bet.new %>
+<% @game = Game.find(params[:game_id]) %>
 <div class="text-center fiche">
   <% if @game.bets == [] %>
     <p class="title">Create your first bet</p>
