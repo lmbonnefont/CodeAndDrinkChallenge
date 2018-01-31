@@ -2,8 +2,7 @@ class GamesController < ApplicationController
 
 
   def fame
-    winner = Winner.last
-    if winner.update(hall_of_fame_params)
+    if Winner.create(hall_of_fame_params)
       redirect_to root_path
     else
       render :uploadphotowinner
