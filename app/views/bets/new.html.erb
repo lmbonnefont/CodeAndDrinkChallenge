@@ -1,11 +1,14 @@
+
+<% @bet = Bet.new %>
+<% @game = Game.find(params[:game_id]) %>
 <div class="wrap-protagonists">
   <div class="text-center fiche">
     <% if @game.bets == [] %>
       <p class="title">Create your first bet</p>
     <% else %>
     <p class="title">Create a new bet</p>
-    <% end %>
-
+  <% end %>
+    
     <div class="wrapper">
       <%= simple_form_for [@game, @bet], url: user_game_bets_path(current_user, @game), method: :post do |f| %>
         <%= f.input :shot %>
